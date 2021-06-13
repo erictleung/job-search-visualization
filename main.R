@@ -1,12 +1,25 @@
 # Load libraries
 library("networkD3")
 library("dplyr")
-library("tribble")
+library("tibble")
+library("webshot")
 
 links <-
   tribble(
     ~ source, ~ target, ~ value,
-    0, 0, 0
+    "Jobs applied to", "Initial reply", 50,
+    "Jobs applied to", "Rejected", 14,
+    "Jobs applied to", "No response", 24,
+    "Initial reply", "Coding task", 2,
+    "Initial reply", "First interview", 0,
+    "Coding task", "First interview", 1,
+    "Networking", "First interview", 2,
+    "First interview", "Coding task", 3,
+    "First interview", "Second interview", 0,
+    "First interview", "Job postponed", 1,
+    "Second interview", "Offer recieved", 1,
+    "Third interview", "Offer recieved", 1,
+    "Offer recieved", "Offer accepted", 1
   )
 
 # From these flows we need to create a node data frame: it lists every entities
@@ -28,6 +41,13 @@ p <-
     Target = "IDtarget",
     Value = "value",
     NodeID = "name",
+    fontSize = 12,
     sinksRight = FALSE
   )
 p
+
+# Save out results
+saveNetwork(p, "sankey-job-search.html")
+webshot("sankey-job-search.html",
+        file = "sankey-job-search.png",
+        delay = 2)
