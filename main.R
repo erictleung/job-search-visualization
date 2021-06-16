@@ -54,10 +54,12 @@ p <-
     fontSize = 12,
     sinksRight = FALSE
   )
-p
+p  # View results
 
 # Save out results
-saveNetwork(p, "sankey-job-search.html")
+saveNetwork(network = p,
+            file = "sankey-job-search.html",
+            selfcontained = TRUE)
 webshot("sankey-job-search.html",
         file = "sankey-job-search.png",
         delay = 2)
