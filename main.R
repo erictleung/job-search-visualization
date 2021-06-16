@@ -7,18 +7,22 @@ library("webshot")
 links <-
   tribble(
     ~ source, ~ target, ~ value,
-    "Jobs applied to", "Initial reply", 50,
-    "Jobs applied to", "Rejected", 14,
+    "Jobs applied to", "Initial reply", 11,
+    "Jobs applied to", "Rejected", 11,
     "Jobs applied to", "No response", 24,
     "Initial reply", "Coding task", 2,
     "Initial reply", "First interview", 0,
-    "Coding task", "First interview", 1,
-    "Networking", "First interview", 2,
     "First interview", "Coding task", 3,
-    "First interview", "Second interview", 0,
+    "First interview", "Second interview", 4,
     "First interview", "Job postponed", 1,
+    "Coding task", "First interview", 1,
+    "Second interview", "Third interview", 3,
     "Second interview", "Offer recieved", 1,
     "Third interview", "Offer recieved", 1,
+    "Networking", "First interview", 2,
+    "Networking", "Recruiter", 2,
+    "Recruiter", "Coding task", 1,
+    "Recruiter", "Rejected", 1,
     "Offer recieved", "Offer accepted", 1
   )
 
